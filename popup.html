@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 页面操作助手</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-icon">✦</div>
+    <span class="logo-text">AI 页面助手</span>
+  </div>
+  <div class="header-btns">
+    <button class="icon-btn" id="btn-select" title="选择页面元素（让AI聚焦在特定区域）">🎯</button>
+    <button class="icon-btn" id="btn-undo"   title="撤销上一次操作">↩</button>
+    <button class="icon-btn" id="btn-clear-history" title="清除本页会话记录">🗑</button>
+    <button class="icon-btn" id="btn-settings" title="设置 API Key">⚙</button>
+  </div>
+</div>
+
+<div class="chat-area" id="chat-area">
+  <div class="welcome" id="welcome">
+    <div class="welcome-icon">✨</div>
+    <h2>AI 驱动的页面操作</h2>
+    <p>用自然语言告诉我你想对当前页面做什么，<br>我会直接修改页面内容</p>
+    <div class="suggestions">
+      <button class="suggestion-chip" data-cmd="隐藏页面上所有广告横幅和悬浮弹窗">隐藏页面上所有广告和弹窗</button>
+      <button class="suggestion-chip" data-cmd="隐藏列表中评分低于4分的所有商品卡片">隐藏列表中评分低于4分的商品</button>
+      <button class="suggestion-chip" data-cmd="把页面上所有价格文字改为0元">把所有价格改为0元</button>
+      <button class="suggestion-chip" data-cmd="将页面上所有倒计时元素的文字改为99:99:99">将所有倒计时改为 99:99:99</button>
+    </div>
+  </div>
+</div>
+
+<div class="input-area">
+  <div class="context-badge" id="context-badge" style="display:none">
+    <div class="context-badge-info">
+      <span class="context-tag" id="context-tag">div</span>
+      <span class="context-preview" id="context-preview">已选择页面元素</span>
+    </div>
+    <button class="context-clear" id="btn-clear-ctx" title="清除选择">×</button>
+  </div>
+
+  <div class="input-row">
+    <div class="input-wrap">
+      <textarea
+        id="cmd-input"
+        placeholder="描述你想对页面做什么..."
+        rows="1"
+      ></textarea>
+    </div>
+    <button class="send-btn" id="send-btn" title="发送 (Enter)">➤</button>
+  </div>
+
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <button class="tool-btn" id="btn-select-sm" title="框选页面区域，让AI更精准">🎯 选择区域</button>
+      <button class="tool-btn" id="btn-undo-sm"   title="撤销">↩ 撤销</button>
+    </div>
+    <span class="hint-text">Enter 发送 · Shift+Enter 换行</span>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

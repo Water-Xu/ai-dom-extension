@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "AI 页面操作助手",
+  "version": "1.0.0",
+  "description": "用自然语言指挥AI直接修改任意网页的DOM结构，让你看到想要的内容",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI 页面操作助手"
+  },
+  "options_page": "options.html"
+}
